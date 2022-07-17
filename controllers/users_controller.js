@@ -3,10 +3,21 @@ const User = require('../models/user');
 //module.exports. profile <-------- here .profile is just a name you could choose any name
 module.exports.profile = function (req, res) {
 	// res.end('<h1>user profile is loaded</h1>');
-	return res.render('users', {
-		title: 'user page',
-		userBody: 'userPageBody',
-	});
+	if (req.cookies.user_id) {
+		User.findById(req.cookies.user_id, function (req, user) {
+			if (user) {
+				return res.render('user_profile', {
+					title: 'user profile',
+					userBody: 'User Profile Page',
+					user: user,
+				});
+			} else {
+				return res.redirect('/users/sign-in');
+			}
+		});
+	} else {
+		return res.redirect('/users/sign-in');
+	}
 };
 
 //render the post page
