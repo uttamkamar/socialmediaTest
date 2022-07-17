@@ -3,9 +3,9 @@ const User = require('../models/user');
 //module.exports. profile <-------- here .profile is just a name you could choose any name
 module.exports.profile = function (req, res) {
 	// res.end('<h1>user profile is loaded</h1>');
-	return res.render('users', {
-		title: 'user page',
-		userBody: 'userPageBody',
+	return res.render('user_profile', {
+		title: 'user profile',
+		userBody: 'user profile page',
 	});
 };
 
