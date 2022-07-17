@@ -58,4 +58,26 @@ module.exports.create = function (req, res) {
 };
 
 //signin and create a session for the user
-module.exports.createSession = function (req, res) {};
+module.exports.createSession = function (req, res) {
+	//step to authenticate
+	//find the user
+	User.findOne({ email: req.body.email }, function (err, user) {
+		if (err) {
+			console.log('error in finding user in signing In');
+			return;
+		}
+		//handle user found
+		if (user) {
+			//handle password which doesn't match
+			if (user.password != req.body.password) {
+				return res.redirect('back');
+			}
+			//habndle session creation
+			res.cookie('user_id', user.id);
+			return res.redirect('/users/profile');
+		} else {
+			//handle user not found
+			return res.redirect('back');
+		}
+	});
+};
