@@ -7,5 +7,19 @@
 		<textarea name="content" id="" cols="30" rows="3" placeholder="Type your post here ...."></textarea>
 		<input type="submit" value="post" />
 	</form>
+
+	<div id="posts-list-container">
+		<ul>
+			<% for(post of posts){ %>
+			<li>
+				<p>
+					<%= post.content %><br />
+					<small> Author: <%= post.user.name %> </small>
+				</p>
+			</li>
+
+			<%} %>
+		</ul>
+	</div>
 </section>
 <script src="/js/home.js"></script>
