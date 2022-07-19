@@ -44,9 +44,15 @@ button {
 	background: #6e57e0;
 	border: none;
 	border-radius: 50px;
+
 	cursor: pointer;
 
 	&:hover {
 		background: #706b9a;
+	}
+
+	a {
+		text-decoration: none;
+		color: #ffff;
 	}
 }

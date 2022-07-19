@@ -10,13 +10,13 @@ module.exports.profile = function (req, res) {
 };
 
 //render the post page
-module.exports.post = function (req, res) {
-	// res.end('<h1>post section is now loaded<h1>');
-	return res.render('post', {
-		title: 'post page',
-		postBody: 'postPagebody',
-	});
-};
+// module.exports.post = function (req, res) {
+// 	// res.end('<h1>post section is now loaded<h1>');
+// 	return res.render('post', {
+// 		title: 'post page',
+// 		postBody: 'postPagebody',
+// 	});
+// };
 
 //render the signup page
 module.exports.signUp = function (req, res) {
